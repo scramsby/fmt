@@ -951,7 +951,7 @@ template <typename Context> struct arg_mapper {
                           !has_formatter<T, Context>::value &&
                           !has_fallback_formatter<T, Context>::value)>
   FMT_CONSTEXPR auto map(const T& val) -> decltype(
-      map(static_cast<typename std::underlying_type<T>::type>(val))) {
+      mapper().map(static_cast<typename std::underlying_type<T>::type>(val))) {
     return map(static_cast<typename std::underlying_type<T>::type>(val));
   }
   template <typename T,
